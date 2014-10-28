@@ -146,7 +146,7 @@ def quantize(ys, bound, dtype):
     returns: quantized signal
     """
     if max(ys) > 1 or min(ys) < -1:
-        print 'Warning: normalizing before quantizing.'
+        print('Warning: normalizing before quantizing.')
         ys = normalize(ys)
         
     zs = (ys * bound).astype(dtype)
@@ -426,7 +426,7 @@ def note(midi_num, duration, sig_cons=CosSignal):
     sig_cons: Signal constructor function
     """
     freq = midi_to_freq(midi_num)
-    print midi_num, freq
+    print(midi_num, freq)
     signal = sig_cons(freq)
     wave = signal.make_wave(duration)
     wave.apodize()
@@ -462,7 +462,7 @@ def main():
     wfile = WavFile()
     for sig_cons in [SinSignal, TriangleSignal, SawtoothSignal, 
                      GlottalSignal, ParabolicSignal, SquareSignal]:
-        print sig_cons
+        print(sig_cons)
         sig = sig_cons(440)
         wave = sig.make_wave(1)
         wave.apodize()

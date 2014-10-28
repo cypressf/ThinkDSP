@@ -29,7 +29,7 @@ def segment_violin(start=1.2, duration=0.6):
     # print the top 5 peaks
     peaks = spectrum.peaks()
     for amp, freq in peaks[:10]:
-        print freq, amp
+        print(freq, amp)
 
     # compare the segments to a 440 Hz Triangle wave
     note = thinkdsp.make_note(69, 0.6, 
@@ -50,7 +50,7 @@ def sin_spectrum():
     thinkplot.Show()
 
     peaks = spectrum.peaks()
-    print peaks[0]
+    print(peaks[0])
 
     wave2 = spectrum.make_wave()
 
@@ -80,7 +80,7 @@ def plot_violin(start=1.30245, duration=0.00683):
     """
     period = duration/3
     freq = 1/period
-    print freq
+    print(freq)
 
     wave = thinkdsp.read_wave('92002__jcveliz__violin-origional.wav')
 
@@ -100,7 +100,7 @@ def plot_tuning(start=7.0, duration=0.006835):
     """
     period = duration/3
     freq = 1/period
-    print period, freq
+    print(period, freq)
 
     wave = thinkdsp.read_wave('18871__zippi1__sound-bell-440hz.wav')
 

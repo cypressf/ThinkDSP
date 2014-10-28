@@ -637,7 +637,7 @@ class Wave(object):
 
         filename: string
         """
-        print 'Writing', filename
+        print('Writing', filename)
         wfile = WavFileWriter(filename, self.framerate)
         wfile.write(self)
         wfile.close()
@@ -689,7 +689,7 @@ def quantize(ys, bound, dtype):
     returns: quantized signal
     """
     if max(ys) > 1 or min(ys) < -1:
-        print 'Warning: normalizing before quantizing.'
+        print('Warning: normalizing before quantizing.')
         ys = normalize(ys)
         
     zs = (ys * bound).astype(dtype)
@@ -1247,13 +1247,13 @@ def main():
     wave = cos_wave(440, offset=math.pi/2)
     cos_cov = cos_basis.cov(wave)
     sin_cov = sin_basis.cov(wave)
-    print cos_cov, sin_cov, mag((cos_cov, sin_cov))
+    print(cos_cov, sin_cov, mag((cos_cov, sin_cov)))
     return
 
     wfile = WavFileWriter()
     for sig_cons in [SinSignal, TriangleSignal, SawtoothSignal, 
                      GlottalSignal, ParabolicSignal, SquareSignal]:
-        print sig_cons
+        print(sig_cons)
         sig = sig_cons(440)
         wave = sig.make_wave(1)
         wave.apodize()
