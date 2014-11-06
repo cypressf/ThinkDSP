@@ -19,18 +19,6 @@ class SawtoothChirp(Chirp):
         ys = normalize(unbias(frac), self.amp)
         return ys
 
-    def evaluate_sawtooth(self, ts, freq):
-        """Evaluates the signal at the given times.
-
-        ts: float array of times
-
-        returns: float wave array
-        """
-        cycles = freq * ts + self.offset / PI2
-        frac, _ = numpy.modf(cycles)
-        ys = normalize(unbias(frac), self.amp)
-        return ys
-
 if __name__ == "__main__":
     sawtooth = SawtoothSignal()
     sawtooth_wave = sawtooth.make_wave()
