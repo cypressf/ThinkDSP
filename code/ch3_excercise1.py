@@ -11,7 +11,6 @@ class SawtoothChirp(Chirp):
         freqs: float array of frequencies during each interval
         """
         dts = numpy.diff(ts)
-        # dps = PI2 * freqs * dts
         dcycles = freqs * dts
         cycles = numpy.cumsum(dcycles)
         cycles = numpy.insert(cycles, 0, 0)
